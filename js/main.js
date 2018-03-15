@@ -1,21 +1,26 @@
 
 function main() {
-
 (function () {
    'use strict';
 
-	// Hide .navbar first
-	$(".navbar").hide();
+    // Hide .navbar first
+    var pathname = window.location.pathname;
+    if(pathname.includes("index.php")){
+        $(".navbar").hide();
+    }
 	
 	// Fade in .navbar
 	$(function () {
 		$(window).scroll(function () {
             // set distance user needs to scroll before we fadeIn navbar
-			if ($(this).scrollTop() > 200) {
-				$('.navbar').fadeIn();
-			} else {
-				$('.navbar').fadeOut();
-			}
+            var pathname = window.location.pathname;
+            if(pathname.includes("index.php")){
+                if ($(this).scrollTop() > 400) {
+                    $('.navbar').fadeIn();
+                } else {
+                    $('.navbar').fadeOut();
+                }
+            }
 		});
 
 	
